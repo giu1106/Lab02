@@ -1,25 +1,22 @@
 import translator as tr
 
 t = tr.Translator()
-
-
+t.loadDictionary("dictionary.txt")
 while(True):
 
     t.printMenu()
+    scelta=input("Scelta: ")
 
-    t.loadDictionary("filename.txt")
-
-    txtIn = input()
-
-    # Add input control here!
-
-    if int(txtIn) == 1:
-        print()
-        txtIn = input()
+    if scelta == '1':
+        print("Inserisci parola aliena e traduzione")
+        nuova_parola = input()
+        entry=nuova_parola.split()
+        if len (entry) == 2:
+            t.handleAdd(entry)
+    elif scelta == '2':
+        query=input("Inserisci parola aliena: ")
+        t.handleTranslate(query)
+    if scelta == '3':
         pass
-    if int(txtIn) == 2:
-        pass
-    if int(txtIn) == 3:
-        pass
-    if int(txtIn) == 4:
+    if scelta == '4':
         break
